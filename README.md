@@ -1,1 +1,11 @@
 Check it out here: https://color-generator-salaarshafi.netlify.app/
+
+This is a project that takes a hex color input and returns 21 shades of this color from the lightest to darkest.
+
+The input box and generate button are both returned as html tags inside a form html tag as jsx elements. A state of color has been set which changes when the input value changes because of the onChange attribute set in the input tag. The generate button is a type submit button and an onSubmit attribute has been set in the form. This onSubmit attribute has in it a handleSubmit function defined which makes use of an external library installed in npm called values. It contains an object and is imported from another file. Upon clicking the generate button the handle submit function uses the color state and makes a new object using the values object from the installed library which returns an array of data containing rgb values and weights of the different shades created from the hex value in the color state.
+
+A try catch functionality is used to establish whether the hex value passed in the color state is legitimate or not. If not another error state is set to true which gives an error in the input box. But if the hex value is legit the color data array created is used to set a list state. This list state is mapped and each item is destructured. The destructured values are an array of red, green, blue values that make a whole single color when passes into a background propertie's rgb value and the weight or percent darkness or lightness of the color.
+
+These are passed into an imported function which uses these values to return a div and the background color of this div uses the rgb array after having applied on it the join function. This background color property is set in inline css using the style attribute. Hence returning an array of div's displaying the shades of the inputted color. 
+
+These functions use the weight values passed into them to display the percentage lightness or darkness of the shade on the div in hex values. This is done by further destructuring the rgb array into red, green and blue values and passing them to another imported function named rgbToHex. This function returns for every shade it's hex value that is returned to the div and displayed on it.
